@@ -1,17 +1,15 @@
 package be.seppevolkaerts.day4
 
+import be.seppevolkaerts.splitInts
 import kotlin.math.pow
-
-fun String.splitNumbers() =
-  trim().split(' ').asSequence().filter { it.isNotBlank() }.map { it.toInt() }
 
 fun matches(card: String): Int {
   val winningAndOurNumbers = card.substringAfter(':', "").split('|')
   if (winningAndOurNumbers.size < 2) {
     return 0
   }
-  val winningNumbers = winningAndOurNumbers[0].splitNumbers().toSet()
-  return winningAndOurNumbers[1].splitNumbers().count { winningNumbers.contains(it) }
+  val winningNumbers = winningAndOurNumbers[0].splitInts().toSet()
+  return winningAndOurNumbers[1].splitInts().count { winningNumbers.contains(it) }
 }
 
 // Part One
