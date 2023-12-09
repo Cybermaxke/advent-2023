@@ -21,6 +21,6 @@ private fun History.predict(previous: Boolean): Long {
   }
   return when {
     previous -> firstOrLast.reversed().reduce { acc, l -> l - acc }
-    else -> firstOrLast.reduce(Long::plus)
+    else -> firstOrLast.sum()
   }
 }
