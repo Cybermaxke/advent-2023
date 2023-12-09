@@ -3,11 +3,7 @@ package be.seppevolkaerts.day9
 import be.seppevolkaerts.splitLongs
 
 class History(val values: List<Long>) {
-
-  companion object {
-
-    operator fun invoke(vararg values: Long) = History(values.asList())
-  }
+  constructor(vararg values: Long) : this(values.asList())
 }
 
 fun Iterable<String>.parseHistory(): List<History> =
